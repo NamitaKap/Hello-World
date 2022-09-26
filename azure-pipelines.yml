@@ -5,14 +5,32 @@
 
 trigger:
 - master
-
 pool:
   vmImage: ubuntu-latest
-
+jobs:
+- job: X
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - bash: echo "Hello world"
 steps:
 - script: echo Hello, world!
-  displayName: 'Task1'
-
+  displayName: 'Task 1'
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+jobs:
+- job: Y
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - bash: echo "Hello world"
+steps:
+- script: echo Hello, world!
+  displayName: 'Task 2'
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
